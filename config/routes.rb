@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users, only: [:index] do
-
+  resources :users, only: [:index, :show] do
   end
 
   devise_scope :user do
