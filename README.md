@@ -110,6 +110,12 @@ The following command can be used to run the application.
 - Twitter: [@dprotocoll](https://twitter.com/dprotocoll)
 - LinkedIn: [@mrprotocoll](https://www.linkedin.com/in/mrprotocoll)
 
+👤 **Zewdu Erkyhun**
+
+- GitHub: [@zewdu444](https://github.com/zewdu444)
+- Twitter: [@zewdu444](https://twitter.com/zewdu444)
+- LinkedIn: [zewdu-anley](https://www.linkedin.com/in/zewdu-anley/)
+
 
 <!-- FUTURE FEATURES -->
 
@@ -141,7 +147,7 @@ If you like this project, please don't forget to follow me and give it a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to acknowledge and thank [Microverse](https://www.microverse.org/) for providing the resources and the platform for this project.
+we would like to acknowledge and thank [Microverse](https://www.microverse.org/) for providing the resources and the platform for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
