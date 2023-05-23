@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <h2>Add ingredient for the recipe </h2>
+    <p>name:<%=@recipe.name%> </p>
+    <p>Description:<%=@recipe.description%> </p>
+  </div>
+  <div>
+    <%= render "form", recipe:@recipe, recipe_food:@recipe_food%>
+  </div>
+</div>
