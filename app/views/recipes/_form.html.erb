@@ -19,7 +19,7 @@
     <br>
     <div>
       <%= form.label :preparation_time_in_hour %><br>
-      <%= form.number_field :preparation_time, step: :any %>
+      <%= form.number_field :preparation_time, step: :any, required:true %>
       <% form.object.errors.full_messages_for(:preparation_time).each do |message|%>
         <div><%= message %></div>
       <%end%>
@@ -27,7 +27,7 @@
     <br>
     <div>
       <%= form.label :cooking_time_in_hour%><br>
-      <%= form.number_field :cooking_time, step: :any %>
+      <%= form.number_field :cooking_time, step: :any, required:true %>
       <% form.object.errors.full_messages_for(:cooking_time).each do |message|%>
         <div><%= message %></div>
       <%end%>
