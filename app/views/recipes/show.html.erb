@@ -23,4 +23,26 @@
       <%= link_to 'Add ingredient', recipe_path(@recipe.id)%>
     </button>
   </div>
+  <hr>
+  <div>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Quntity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>food name</td>
+        <td>number of Quntity</td>
+        <td>food price</td>
+        <td> <button>
+            <%= link_to 'Modify', recipe_path(@recipe.id) %>
+          </button>
+          <button>
+            <%= link_to 'Remove', recipe_path(@recipe.id)%>
+          </button></td>
+      </tr>
+    </table>
+  </div>
 </div>
