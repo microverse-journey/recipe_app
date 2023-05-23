@@ -5,25 +5,25 @@
     </div>
 
     <table class="table table-stripped">
-    <thead class="">
-        <tr>
-        <th>Name</th>
-        <th>Measurement Unit</th>
-        <th>Quantity</th>
-        <th>Unit Price</th>
-        <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @foods.each do |food| %>
-        <tr>
-            <td><%= food.name %></td>
-            <td><%= food.measurement_unit %></td>
-            <td><%= food.quantity %></td>
-            <td><%= food.price %></td>
-            <td><%= button_to "Delete", food, class: "btn btn-sm btn-danger btn-gradient", data: {turbo: false}, method: :delete %></td>
-        </tr>
-        <% end %>
-    </tbody>
+        <thead class="thead">
+            <tr>
+            <th>Name</th>
+            <th>Measurement Unit</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @foods.each do |food| %>
+            <tr>
+                <td><%= food.name %></td>
+                <td><%= food.measurement_unit %></td>
+                <td><%= food.quantity %></td>
+                <td><%= food.price %></td>
+                <td><%= button_to "Delete", food, class: "btn btn-sm btn-danger btn-gradient", data: {turbo: false}, method: :delete %></td>
+            </tr>
+            <% end %>
+        </tbody>
     </table>
 </div>

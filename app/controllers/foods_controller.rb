@@ -8,11 +8,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    if current_user.foods.create!(food_params)
+    @food = current_user.foods.new(food_params)
+    if @food.save
       redirect_to foods_path, notice: 'Food successfully created'
     else
       render :new, notice: 'Failed to add food'
     end
+
   end
 
   def destroy
