@@ -5,15 +5,16 @@ Rails.application.routes.draw do
   devise_for :users
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users, only: %i[index show] do
-  end
+
+    resources :recipes, only: %i[index show new create destroy] do
+    end
 
   devise_scope :user do
     authenticated :user do
-      root 'users#index', as: :authenticated_root
+      root 'recipes#index', as: :authenticated_root
     end
     unauthenticated do
-      root 'users#index', as: :unauthenticated_root
+      root 'recipes#index', as: :unauthenticated_root
     end
   end
 end
