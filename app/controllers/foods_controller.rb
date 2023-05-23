@@ -14,7 +14,6 @@ class FoodsController < ApplicationController
     else
       render :new, notice: 'Failed to add food'
     end
-
   end
 
   def destroy
