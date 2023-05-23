@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  load_and_authorize_resource
   def new
     @recipe = current_user.recipes.find(params[:recipe_id])
     @recipe_food = RecipeFood.new
@@ -11,6 +12,11 @@ class RecipeFoodsController < ApplicationController
     else
       render :new
     end
+  end
+  def destroy
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.destroy
+    redirect_to request.referrer
   end
 
   private

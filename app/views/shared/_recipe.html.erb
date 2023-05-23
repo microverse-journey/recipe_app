@@ -2,12 +2,14 @@
   <div >
     <div>
       <h2><%= link_to recipe.name, recipe_path(recipe.id)  %></h2>
-      <button>
-        <%= link_to 'Remove',recipe_path(recipe.id) , data: {
+      <% if can? :destroy, recipe %>
+        <button>
+          <%= link_to 'Remove',recipe_path(recipe.id) , data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>
-      </button>
+        </button>
+      <% end %>
     </div>
   </div>
   <p><%= recipe.description%></p>

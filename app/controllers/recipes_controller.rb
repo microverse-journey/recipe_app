@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:public_recipes]
+  load_and_authorize_resource
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes.order(:name)
   end
 
   def show

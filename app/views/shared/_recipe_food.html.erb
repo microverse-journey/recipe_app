@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>Food</th>
+    <th>Quntity</th>
+    <th>Value</th>
+    <th>Actions</th>
+  </tr>
+  <%@recipe.recipe_foods.each do |recipe_food|%>
+    <tr>
+      <td><%=recipe_food.food.name%></td>
+      <td><%=recipe_food.quantity%></td>
+      <td><%=recipe_food.food.price%></td>
+      <td>
+        <button>
+          Modify
+        </button>
+        <% if can? :destroy, @recipe_food %>
+          <button>
+            <%= link_to 'Remove', recipe_recipe_food_path(@recipe.id,recipe_food.id), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %>
+          </button>
+        <% end %>
+      </td>
+    </tr>
+  <%end%>
+</table>

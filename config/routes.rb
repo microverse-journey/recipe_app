@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
     resources :users, only: %i[index show]
     resources :recipes, only: %i[index show new create destroy] do
-      resources :recipe_foods, only: %i[new create]
+      resources :recipe_foods, only: %i[new create destroy]
     end
 
     get '/public_recipes', to: 'recipes#public_recipes', as: :public_recipes

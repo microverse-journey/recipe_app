@@ -25,24 +25,8 @@
   </div>
   <hr>
   <div>
-    <table>
-      <tr>
-        <th>Food</th>
-        <th>Quntity</th>
-        <th>Value</th>
-        <th>Actions</th>
-      </tr>
-      <tr>
-        <td>Apple</td>
-        <td>2</td>
-        <td>200$</td>
-        <td> <button>
-            <%= link_to 'Modify', recipe_path(@recipe.id) %>
-          </button>
-          <button>
-            <%= link_to 'Remove', recipe_path(@recipe.id)%>
-          </button></td>
-      </tr>
-    </table>
+    <div>
+      <%= render "shared/recipe_food"%>
+    </div>
   </div>
 </div>
