@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:public_recipes]
   def index
     @recipes = Recipe.all
   end
@@ -24,6 +24,11 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+ def public_recipes
+    @recipes = Recipe.where(public: true).order(:name)
+ end
+
+ private
   def recipe_params
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
