@@ -1,0 +1,16 @@
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to "Home", unauthenticated_root_path %></li>
+      <li><%= link_to "Recipes", recipes_path %></li>
+      <li><%= link_to "Foods",  foods_path %></li>
+      <% if current_user %>
+        <li>
+          <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
