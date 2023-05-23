@@ -6,6 +6,7 @@ class Ability
     #
     return unless user.present?
 
+    can :public_recipes, Recipe
     can :manage, Food
     can :manage, Recipe
     can :manage, RecipeFood
