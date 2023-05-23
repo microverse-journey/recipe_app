@@ -1,5 +1,5 @@
-class Recipe < ApplicationRecord
+class Food < ApplicationRecord
   belongs_to :user
-  validates :name, presence: true
+  validates :name, uniqueness: true
   has_many :recipe_foods, dependent: :destroy
 end

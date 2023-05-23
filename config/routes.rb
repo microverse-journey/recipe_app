@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     get '/public_recipes', to: 'recipes#public_recipes', as: :public_recipes
 
+  resources :foods
+
     authenticated :user do
       root 'recipes#index', as: :authenticated_root
     end
