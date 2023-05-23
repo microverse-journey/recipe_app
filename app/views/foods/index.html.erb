@@ -1,0 +1,29 @@
+<div class="mt-4">
+    <div class="d-flex justify-content-between mb-4">
+        <h2>Foods</h2>
+        <%= link_to "Add new food", new_food_path, class: "btn btn-primary btn-gradient" %>
+    </div>
+
+    <table class="table table-stripped">
+    <thead class="">
+        <tr>
+        <th>Name</th>
+        <th>Measurement Unit</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @foods.each do |food| %>
+        <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.quantity %></td>
+            <td><%= food.price %></td>
+            <td><%= button_to "Delete", food, class: "btn btn-sm btn-danger btn-gradient", data: {turbo: false}, method: :delete %></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+</div>
