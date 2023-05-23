@@ -18,7 +18,7 @@
       <ul class="navbar-nav ms-auto mb2 mb-lg-0">
         <% if user_signed_in? %>
           <li class="nav-item pe-5 pt-2">
-            <%= link_to current_user.email,  class: "nav-link" %>
+            <p class="text-dark"><%= current_user.email %></p>
           </li>
           <li class="nav-item pe-3">
             <%= link_to "Create New Recipe", new_recipe_path,  class: " btn btn-secondary" %>
