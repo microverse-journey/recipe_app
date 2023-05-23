@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.btn{
+    border-radius: 50px !important;
+}
