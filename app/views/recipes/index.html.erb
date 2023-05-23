@@ -3,6 +3,9 @@
     <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
   </button>
 </div>
+<button>
+  <%= link_to 'Create new Recipe', new_recipe_path(current_user)%>
+</button>
 <% @recipes.each do |recipe| %>
   <%= render 'shared/recipe', recipe:recipe%>
 <%end%>
