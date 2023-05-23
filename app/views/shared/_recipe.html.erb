@@ -1,7 +1,7 @@
 <div >
   <div >
     <div>
-      <h2><%= link_to "Recipe #{recipe.id}", recipe_path(recipe.id)  %></h2>
+      <h2><%= link_to recipe.name, recipe_path(recipe.id)  %></h2>
       <button>
         <%= link_to 'Remove',recipe_path(recipe.id) , data: {
                     turbo_method: :delete,
