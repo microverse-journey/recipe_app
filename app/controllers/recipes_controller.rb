@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @recipes = Recipe.where(public: true).order(:name)
+    @recipes = Recipe.where(public: true).order(:created_at)
   end
 
   private
