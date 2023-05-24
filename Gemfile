@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.9.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
