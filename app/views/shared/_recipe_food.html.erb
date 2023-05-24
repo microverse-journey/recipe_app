@@ -14,7 +14,7 @@
         <button>
           Modify
         </button>
-        <% if can? :destroy, @recipe_food %>
+        <% if can? :destroy, recipe_food %>
           <button>
             <%= link_to 'Remove', recipe_recipe_food_path(@recipe.id,recipe_food.id), data: {
                           turbo_method: :delete,
