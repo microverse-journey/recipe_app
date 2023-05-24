@@ -15,12 +15,10 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <% flash.each do |key, message| %>
-      <div class="flash-message alert alert-info">
-        <%= message %>
-      </div>
-    <% end %>
-    <%= render "layouts/navbar" %>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <div class="container pt-4">
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
