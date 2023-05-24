@@ -28,15 +28,14 @@ class FoodsController < ApplicationController
 
   def general_shopping_list
     @shopping_list = Food.joins(recipe_foods: :recipe)
-    .where(user_id: current_user.id)
-    .group('foods.name, foods.quantity, foods.price')
-    .having('SUM(recipe_foods.quantity) > foods.quantity')
-    .pluck('foods.name', 'SUM(recipe_foods.quantity)', 'foods.quantity', 'foods.price')
+      .where(user_id: current_user.id)
+      .group('foods.name, foods.quantity, foods.price')
+      .having('SUM(recipe_foods.quantity) > foods.quantity')
+      .pluck('foods.name', 'SUM(recipe_foods.quantity)', 'foods.quantity', 'foods.price')
 
     @total_food_items = @shopping_list.length
 
     @total = @shopping_list.sum { |food| (food[1] - food[2]) * food[3] }
-
   end
 
   private
