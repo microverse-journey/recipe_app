@@ -26,6 +26,14 @@ class FoodsController < ApplicationController
     end
   end
 
+  def general_shopping_list
+    @shopping_list = Food.select('foods.name AS food_name, SUM(recipe_foods.quantity) AS total_quantity, foods.quantity AS food_quantity')
+    .left_joins(:recipe_foods)
+    .left_joins(:recipes)
+    .where('foods.user_id = ?', current_user.id)
+    .group('recipe_foods.food_id')
+  end
+
   private
 
   def food_params
