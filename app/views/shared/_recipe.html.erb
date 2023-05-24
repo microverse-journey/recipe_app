@@ -3,7 +3,7 @@
         <div class="col-sm-4">
             <h4><%= link_to recipe.name, recipe_path(recipe.id) %></h4>
             <% if can? :destroy, recipe %>
-              <%= link_to 'Remove',recipe_path(recipe.id), class: "btn mt-3 btn-sm btn-danger bg-gradient" , data: {
+              <%= link_to 'Remove',recipe_path(recipe.id), class: "btn mt-3 btn-sm btn-outline-danger bg-gradient" , data: {
                         turbo_method: :delete,
                         turbo_confirm: "Are you sure?"
                       } %>

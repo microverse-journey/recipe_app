@@ -2,7 +2,7 @@
     <div class="card-body d-flex justify-content-between">
         <div class="col-sm-4">
             <h4><%= link_to recipe.name, recipe_path(recipe.id) %></h4>
-            <h5>by: <%= recipe.user.name %></h5>
+            <p><span class="fw-bold"> by: </span> <%= recipe.user.name %></p>
         </div>
         <div class="col-sm-6">
             <h5>Total food items: <%= recipe.recipe_foods.length %></h5>
