@@ -1,11 +1,11 @@
 <div class="card mb-3">
     <div class="card-body row">
         <div class="col-sm-4">
-            <h4><%= recipe.name %></h4>
+            <h4><%= link_to recipe.name, recipe_path(recipe.id) %></h4>
             <h5>by: <%= recipe.user.name %></h5>
         </div>
         <div class="col-sm-6">
-        <p><%= recipe.description.truncate(30) %></p>
+        <p><%= recipe.description.truncate(200) %></p>
         </div>
     </div>
 </div>

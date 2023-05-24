@@ -37,9 +37,6 @@ class FoodsController < ApplicationController
 
     @total = @shopping_list.sum { |food| (food[1] - food[2]) * food[3] }
 
-    # @total = @shopping_list.reduce(0) { |sum, food| sum + ((food.total_quantity - food.food_quantity) * food.food_price) }
-
-    # @shopping_list = current_user.shopping_list
   end
 
   private
