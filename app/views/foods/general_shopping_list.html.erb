@@ -19,11 +19,11 @@
         <tbody>
             <% if @total_food_items > 0 %>
                 <% @shopping_list.each do |food| %>
-                <% total = food[1] - food[2] %>
+                <% total = food.total_quantity - food.food_quantity %>
                 <tr>
-                    <td><%= food[0] %></td>
+                    <td><%= food.name %></td>
                     <td><%= total %></td>
-                    <td><%= number_to_currency(total * food[3]) %></td>
+                    <td><%= number_to_currency(total * food.price) %></td>
                 </tr>
                 <% end %>
             <% end %>
