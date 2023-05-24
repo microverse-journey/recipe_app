@@ -1,6 +1,3 @@
-<button>
-  <%= link_to 'Create new Recipe', new_recipe_path%>
-</button>
 <% @recipes.each do |recipe| %>
   <%= render 'shared/recipe', recipe:recipe%>
 <%end%>

@@ -25,7 +25,10 @@
             <p class="text-dark"><%= current_user.email %></p>
           </li>
           <li class="nav-item pe-3">
-            <%= link_to "Create New Recipe", new_recipe_path,  class: " btn btn-secondary" %>
+            <%= link_to "Add Food", new_food_path,  class: " btn btn-outline-primary bg-gradient" %>
+          </li>
+          <li class="nav-item pe-3">
+            <%= link_to "Add New Recipe", new_recipe_path,  class: " btn btn-secondary" %>
           </li>
           <li class="nav-item">
             <%= button_to "Logout", destroy_user_session_path, class: "btn btn-outline-secondary", method: :delete %>

@@ -1,11 +1,12 @@
 <div class="card mb-3">
-    <div class="card-body row">
+    <div class="card-body d-flex justify-content-between">
         <div class="col-sm-4">
             <h4><%= link_to recipe.name, recipe_path(recipe.id) %></h4>
             <h5>by: <%= recipe.user.name %></h5>
         </div>
         <div class="col-sm-6">
-        <p><%= recipe.description.truncate(200) %></p>
+            <h5>Total food items: <%= recipe.recipe_foods.length %></h5>
+            <h5>Total price: <%= number_to_currency(recipe.recipe_foods.sum { |food| food.quantity * food.food.price }) %></h5>
         </div>
     </div>
 </div>
