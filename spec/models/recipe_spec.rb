@@ -40,5 +40,9 @@ RSpec.describe Recipe, type: :model do
     @recipe.cooking_time = 0
     expect(@recipe).to_not be_valid
   end
+  it "it is not valid without a user" do
+    @recipe.user_id = nil
+    expect(@recipe).to_not be_valid
+  end
 
 end
