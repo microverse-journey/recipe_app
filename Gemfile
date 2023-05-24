@@ -14,6 +14,13 @@ gem 'cancancan'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
+group :development, :test do
+  gem 'capybara'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '>= 3.9.0'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+end
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -64,11 +71,4 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-end
-
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
