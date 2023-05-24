@@ -1,14 +1,16 @@
 <div>
-  <div>
-    <h2>Add ingredient for the recipe </h2>
-    <p>name:<%=@recipe.name%> </p>
-    <p>Description:<%=@recipe.description%> </p>
+  <div class="d-flex justify-content-between">
+    <h5>Recipe Name: <%=@recipe.name%> </h5>
   </div>
-  <div>
+  <p> <span class="fw-bold"> Description: </span> <%=@recipe.description%> </p>
+
+  <div class="col-md-8 mx-auto my-5">
+    <h3 class="mb-4">Add ingredient </h3>
     <%= render "form", recipe:@recipe, recipe_food:@recipe_food%>
   </div>
-  <hr>
-  <div>
+
+  <hr class="my-5">
+  <div class="col-md-8 mx-auto">
     <%= render "shared/recipe_food"%>
   </div>
 </div>
