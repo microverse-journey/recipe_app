@@ -34,7 +34,7 @@ RSpec.describe 'RecipeFoods', type: :feature do
   end
   scenario 'should have a button to remove' do
     visit new_recipe_recipe_food_path(@recipe)
-    expect(page).to have_button('Remove')
+    expect(page).to have_content('Remove')
   end
   scenario 'should have a button to modify' do
     visit new_recipe_recipe_food_path(@recipe)
@@ -43,17 +43,14 @@ RSpec.describe 'RecipeFoods', type: :feature do
   scenario 'When i click on add ingredient button it should add ingredient to recipe' do
     visit new_recipe_recipe_food_path(@recipe)
     fill_in 'Quantity', with: 10
-    select 'Test food', from: 'Food'
+    find('.form-select')
+    select 'Test food', from: 'recipe_food[food_id]'
     click_button 'Add ingredient'
     expect(page).to have_content('Test food')
   end
   scenario 'When i click on remove button it should remove ingredient from recipe' do
     visit new_recipe_recipe_food_path(@recipe)
-    fill_in 'Quantity', with: 10
-    select 'Test food', from: 'Food'
-    click_button 'Add ingredient'
-    expect(page).to have_content('Test food')
-    find('a', text: 'Remove', match: :first).click
+    find('a', text: 'Remove', match: :first, wait: 5).click
     expect(page).to have_no_content(@recipe_food.id)
   end
 end

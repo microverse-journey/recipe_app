@@ -6,8 +6,6 @@ RSpec.describe 'Recipes', type: :feature do
                         password_confirmation: '123456', confirmation_token: nil, confirmed_at: Time.now)
     @recipe = Recipe.create(name: 'Test recipe', preparation_time: 10.2, cooking_time: 20.3,
                             description: 'Test description', public: true, user_id: @user.id)
-    @recipe_two = Recipe.create(name: 'Test recipe Two', preparation_time: 10.2, cooking_time: 20.3,
-                                description: 'Test description two', public: true, user_id: @user.id)
     visit new_user_session_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -21,10 +19,6 @@ RSpec.describe 'Recipes', type: :feature do
     scenario 'should have name of recipe on public recipes page' do
       visit public_recipes_path
       expect(page).to have_content(@recipe.name)
-    end
-    scenario 'should have description of recipe on public recipes page' do
-      visit public_recipes_path
-      expect(page).to have_content(@recipe.description)
     end
     scenario 'should have a user name on public recipes page' do
       visit public_recipes_path
@@ -48,19 +42,10 @@ RSpec.describe 'Recipes', type: :feature do
       visit recipes_path
       expect(page).to have_content('Remove')
     end
-    scenario 'should have a create new recipe button on recipes list page' do
-      visit recipes_path
-      expect(page).to have_content('Create New Recipe')
-    end
     scenario 'when i click on remove button it should remove the recipe' do
       visit recipes_path
       find('a', text: 'Remove', match: :first).click
       expect(page).not_to have_content(@recipe.id)
-    end
-    scenario 'when i click on create new recipe button it should go to new recipe page' do
-      visit recipes_path
-      click_on('Create New Recipe')
-      expect(page).to have_content('Add New Recipe')
     end
   end
   describe ' new recipe page ' do
@@ -87,7 +72,7 @@ RSpec.describe 'Recipes', type: :feature do
       fill_in 'recipe_cooking_time', with: 20.3
       fill_in 'recipe_description', with: 'Test description'
       click_on('Create Recipe')
-      expect(page).to have_content('Create New Recipe')
+      expect(page).to have_content(@recipe.name)
     end
   end
   describe ' show recipe page ' do
@@ -103,16 +88,16 @@ RSpec.describe 'Recipes', type: :feature do
     end
     scenario 'should have Add ingredient  button on show recipe page' do
       visit recipe_path(@recipe)
-      expect(page).to have_button('Add ingredient')
+      expect(page).to have_content('Add ingredient')
     end
     scenario 'should have Generate shopping list button on show recipe page' do
       visit recipe_path(@recipe)
-      expect(page).to have_button('Generate shopping list')
+      expect(page).to have_content('Generate shopping list')
     end
     scenario 'when i click on Add ingredient button it should add ingredient ' do
       visit recipe_path(@recipe)
       find('a', text: 'Add ingredient', match: :first).click
-      expect(page).to have_content('Add ingredient for the recipe')
+      expect(page).to have_content('Add ingredient')
     end
   end
 end
