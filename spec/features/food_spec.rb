@@ -30,7 +30,7 @@ RSpec.describe 'Foods', type: :feature do
       visit new_food_path
       expect(page).to have_button('Create Food')
     end
-     scenario 'When i click on add food button it should add food to and redirect to foods' do
+    scenario 'When i click on add food button it should add food to and redirect to foods' do
       visit new_food_path
       fill_in 'Name', with: 'Test food three'
       fill_in 'Price', with: 12.2
@@ -55,10 +55,10 @@ RSpec.describe 'Foods', type: :feature do
       expect(page).to have_link('Add new food')
     end
     scenario 'should have a button to delete food' do
-       visit foods_path
-        expect(page).to have_content('Delete')
+      visit foods_path
+      expect(page).to have_content('Delete')
     end
-    scenario "When i click on delete button it should delete food and redirect to foods" do
+    scenario 'When i click on delete button it should delete food and redirect to foods' do
       visit foods_path
       find('button', text: 'Delete', match: :first, wait: 5).click
       expect(page).to have_content('Food deleted successfuly')
@@ -74,6 +74,5 @@ RSpec.describe 'Foods', type: :feature do
       expect(page).to have_content(@food.name)
       expect(page).to have_content(@food.quantity)
     end
-
   end
 end

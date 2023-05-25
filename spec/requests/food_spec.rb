@@ -12,31 +12,31 @@ RSpec.describe 'Foods', type: :request do
     post user_session_path params: { user: { email: @user.email, password: @user.password } }
   end
   describe ' GET /foods/new' do
-     it 'return http success' do
-        get new_food_path
-        expect(response).to have_http_status(200)
-     end
-      it ' render the new template' do
-        get new_food_path
-        expect(response).to render_template('new').or(render_template('foods/new'))
-      end
-      it 'displays the new food form' do
-        get new_food_path
-        expect(response.body).to include('Create New Food')
-      end
+    it 'return http success' do
+      get new_food_path
+      expect(response).to have_http_status(200)
+    end
+    it ' render the new template' do
+      get new_food_path
+      expect(response).to render_template('new').or(render_template('foods/new'))
+    end
+    it 'displays the new food form' do
+      get new_food_path
+      expect(response.body).to include('Create New Food')
+    end
   end
-  describe  'GET /general_shopping_list' do
-      it 'return http success' do
-          get general_shopping_list_path
-          expect(response).to have_http_status(200)
-      end
-        it 'render the index template' do
-          get general_shopping_list_path
-          expect(response).to render_template('index').or(render_template('general_shopping_list'))
-        end
-        it 'displays the food name' do
-          get general_shopping_list_path
-          expect(response.body).to include(@food.name)
-        end
+  describe 'GET /general_shopping_list' do
+    it 'return http success' do
+      get general_shopping_list_path
+      expect(response).to have_http_status(200)
+    end
+    it 'render the index template' do
+      get general_shopping_list_path
+      expect(response).to render_template('index').or(render_template('general_shopping_list'))
+    end
+    it 'displays the food name' do
+      get general_shopping_list_path
+      expect(response.body).to include(@food.name)
+    end
   end
 end
