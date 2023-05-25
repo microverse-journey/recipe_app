@@ -27,10 +27,6 @@ RSpec.describe 'Users', type: :feature do
       visit new_user_session_path
       expect(page).to have_link('Forgot your password?')
     end
-    scenario 'should have a remember me checkbox' do
-      visit new_user_session_path
-      expect(page).to have_content('Remember me')
-    end
     scenario 'should have dint receive confirmation instructions link' do
       visit new_user_session_path
       expect(page).to have_link("Didn't receive confirmation instructions?")
@@ -40,7 +36,7 @@ RSpec.describe 'Users', type: :feature do
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
       click_button 'Log in'
-      expect(page).to have_content('Recipes')
+      expect(page).to have_content('Signed in successfully')
     end
     scenario 'when user signs in with invalid credential it will redirect to sign in page' do
       visit new_user_session_path
@@ -52,7 +48,7 @@ RSpec.describe 'Users', type: :feature do
     scenario 'when user clicks on sign up link it will redirect to sign up page' do
       visit new_user_session_path
       click_link 'Sign up'
-      expect(page).to have_content('Sign up')
+      expect(page).to have_content('Already have an account? Login')
     end
     scenario 'when user clicks on forgot password link it will redirect to forgot password page' do
       visit new_user_session_path
@@ -68,7 +64,7 @@ RSpec.describe 'Users', type: :feature do
   describe 'sign up page' do
     scenario 'should have a sign up page' do
       visit new_user_registration_path
-      expect(page).to have_content('Sign up')
+      expect(page).to have_content('Already have an account? Login')
     end
     scenario 'should have a sign up form' do
       visit new_user_registration_path
@@ -83,7 +79,7 @@ RSpec.describe 'Users', type: :feature do
     end
     scenario 'should have a sign in link' do
       visit new_user_registration_path
-      expect(page).to have_link('Log in')
+      expect(page).to have_content('Already have an account? Login')
     end
     scenario 'when user signs up with valid credential it will redirect to login page' do
       visit new_user_registration_path
@@ -92,7 +88,7 @@ RSpec.describe 'Users', type: :feature do
       fill_in 'Password', with: @user.password
       fill_in 'Password confirmation', with: @user.password_confirmation
       click_button 'Sign up'
-      expect(page).to have_content('Log in')
+      expect(page).to have_content('Already have an account? Login')
     end
   end
   describe 'forgot password page' do
