@@ -27,7 +27,8 @@ class FoodsController < ApplicationController
   end
 
   def general_shopping_list
-    @shopping_list = current_user.foods.select('foods.name', 'SUM(recipe_foods.quantity) AS total_quantity','foods.quantity AS food_quantity', 'foods.price')
+    @shopping_list = current_user.foods.select('foods.name', 'SUM(recipe_foods.quantity) AS total_quantity', 'foods.quantity AS food_quantity',
+                                               'foods.price')
       .joins(recipe_foods: :recipe)
       .group('foods.name, foods.quantity, foods.price')
       .having('SUM(recipe_foods.quantity) > foods.quantity')

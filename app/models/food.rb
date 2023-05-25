@@ -5,7 +5,7 @@ class Food < ApplicationRecord
 
   def missing_foods
     select('foods.name', 'SUM(recipe_foods.quantity) AS total_quantity',
-                                 'foods.quantity AS food_quantity', 'foods.price')
+           'foods.quantity AS food_quantity', 'foods.price')
       .joins(recipe_foods: :recipe)
       .where(user_id: user.id)
       .group('foods.name, foods.quantity, foods.price')
