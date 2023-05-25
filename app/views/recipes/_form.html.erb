@@ -1,0 +1,47 @@
+<%= form_with model: [current_user.recipes.build] do |form| %>
+  <div class="">
+    <h3 class="text-center my-4"> Add New Recipe </h3>
+    <div class="mb-3">
+      <%= form.label :name  %><br>
+      <%= form.text_field :name, class: "form-control"%>
+      <% form.object.errors.full_messages_for(:name).each do |message|%>
+        <div><%= message %></div>
+      <%end%>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description%><br>
+      <%= form.text_area :description, rows:5, class: "form-control" %>
+      <% form.object.errors.full_messages_for(:description).each do |message|%>
+        <div><%= message %></div>
+      <%end%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :preparation_time_in_hour %><br>
+      <%= form.number_field :preparation_time, step: :any, required:true, class: "form-control" %>
+      <% form.object.errors.full_messages_for(:preparation_time).each do |message|%>
+        <div><%= message %></div>
+      <%end%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :cooking_time_in_hour%><br>
+      <%= form.number_field :cooking_time, step: :any, required:true, class: "form-control" %>
+      <% form.object.errors.full_messages_for(:cooking_time).each do |message|%>
+        <div><%= message %></div>
+      <%end%>
+    </div>
+
+    <div class="mb-3 form-check form-switch">
+      <%= form.label :public, class:"form-check-label" %>
+      <%= form.check_box  :public , class: "form-check-input" %>
+      <% form.object.errors.full_messages_for(:public).each do |message|%>
+        <div><%= message %></div>
+      <%end%>
+    </div>
+
+    <div class="mb-3">
+    <%= form.submit "Create Recipe" , class: "btn btn-primary bg-gradient"%>
+    </div>
+  </div>
+<%end%>

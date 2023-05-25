@@ -1,0 +1,16 @@
+<div class="card mb-3">
+    <div class="card-body row">
+        <div class="col-sm-4">
+            <h4><%= link_to recipe.name, recipe_path(recipe.id) %></h4>
+            <% if can? :destroy, recipe %>
+              <%= link_to 'Remove',recipe_path(recipe.id), class: "btn mt-3 btn-sm btn-outline-danger bg-gradient" , data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      } %>
+      <% end %>
+        </div>
+        <div class="col-sm-6">
+        <p><%= recipe.description %></p>
+        </div>
+    </div>
+</div>
