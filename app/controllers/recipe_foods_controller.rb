@@ -6,7 +6,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.find(params[:recipe_id]).includes(:recipe_foods)
+    @recipe = current_user.recipes.find(params[:recipe_id])
     @recipe_food = RecipeFood.new(recipe_food_params.merge(recipe_id: @recipe.id))
     if @recipe_food.save
       redirect_to request.referrer
