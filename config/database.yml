@@ -87,4 +87,4 @@ production:
   url: <%= ENV["DATABASE_URL"] %>
   database: recipeapp_i2it
   username: mrprotocoll
-  password: <%= ENV["RECIPE_APP_DATABASE_PASSWORD"] %>
+  password: <%= ENV["MYSITE_DATABASE_PASSWORD"] %>
